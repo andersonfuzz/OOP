@@ -1,0 +1,15 @@
+/workspaces/OOP/bin/Debug/net10.0/OOP
+/workspaces/OOP/bin/Debug/net10.0/OOP.deps.json
+/workspaces/OOP/bin/Debug/net10.0/OOP.runtimeconfig.json
+/workspaces/OOP/bin/Debug/net10.0/OOP.dll
+/workspaces/OOP/bin/Debug/net10.0/OOP.pdb
+/workspaces/OOP/obj/Debug/net10.0/OOP.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/OOP/obj/Debug/net10.0/OOP.AssemblyInfoInputs.cache
+/workspaces/OOP/obj/Debug/net10.0/OOP.AssemblyInfo.cs
+/workspaces/OOP/obj/Debug/net10.0/OOP.csproj.CoreCompileInputs.cache
+/workspaces/OOP/obj/Debug/net10.0/OOP.sourcelink.json
+/workspaces/OOP/obj/Debug/net10.0/OOP.dll
+/workspaces/OOP/obj/Debug/net10.0/refint/OOP.dll
+/workspaces/OOP/obj/Debug/net10.0/OOP.pdb
+/workspaces/OOP/obj/Debug/net10.0/OOP.genruntimeconfig.cache
+/workspaces/OOP/obj/Debug/net10.0/ref/OOP.dll
