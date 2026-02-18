@@ -1,13 +1,16 @@
-class Person{
-    public string? Name;
-    public int Age;
-    public bool Shorty;
-    private string? Sex;
+ class Person
+{
+    public string name;
+    public int age;
+    public string occupation;
 
-    public void ToPresent(){
-        Console.WriteLine($"Olá,meu nome é {Name} e tenho {Age} anos.");
-    }
-    public string VerifyAge(){
-        return Age >= 18 ? "Maior de idade" : "Menor de idade";
+    public void DisplayOnScreen(string text)
+    {
+    Console.WriteLine(text);
+        
+    } 
+    public void Andar(){
+    Console.WriteLine("Andando...");
+
     }
 }
