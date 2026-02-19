@@ -5,7 +5,7 @@ class Conta{
      double Saldo{set;get;}
      bool Status{set;get;}
 
-
+                //acessei o tipo antes de iniciar,corrigir depois
     public void AbrirConta(string nome,string tipo)
     {
         if (this.Status)
@@ -47,12 +47,13 @@ class Conta{
             Console.WriteLine("Informe um valor válido");
         }else this.Saldo+=valor;
     }
+                //atualmente ta podendo sacar valor negativo kkkk verificar isso
     public void Sacar(double valor)
     {
         if (!this.Status)
         {
             Console.WriteLine("Abra uma conta para ter acesso a essa funcionalidade.");
-        }
+        }           //   100 < -96
         else if (this.Saldo<valor)
         {
             Console.WriteLine("Saldo insuficiente");
