@@ -1,50 +1,92 @@
 class Conta{
-    string? NumConta{set;get;}
+    int NumConta{set;get;}
      string Tipo{set;get;}
-     string? Dono{set;get;}
+     string? Nome{set;get;}
      double Saldo{set;get;}
      bool Status{set;get;}
 
-    public Conta(string tipo,string dono)
+
+    public void AbrirConta(string nome,string tipo)
     {
-        this.NumConta=NumAleatorio();
-        this.Status=true;
-        this.Tipo=tipo;
-        this.Dono=dono;
-        switch (tipo)
+        if (this.Status)
         {
-            case "cc":
-            this.Saldo=50;
-            break;
-            case "cp":
-            this.Saldo=150;
-            break;
-            default:
-            Console.WriteLine("Tipo de conta inválida,não foi possível abrir sua conta.");
-            break;
+            Console.WriteLine("Você já possui uma conta.");            
+        }
+        else if(tipo.ToLower()!="cc" && tipo.ToLower() != "cp")
+        {
+            Console.WriteLine("Escolha uma opção válida 'cc' ou 'cp'");
+        }
+        else
+        {
+            this.Saldo=this.Tipo=="cc"?50:150;
+            this.Nome=nome;
+            this.Tipo=tipo;
+            this.Status=true;
+            this.NumConta=NumAleatorio();
+            Console.WriteLine("Conta criada.");
+        }
+    }
+    public void FecharConta()
+    {
+        if (this.Saldo == 0 && this.Status==true)
+        {
+            this.Nome="usuário não encontrado";
+            this.NumConta=00000000;
+            this.Status=false;
+            this.Tipo="";
+            Console.WriteLine("Cont encerrada.");
+            
+        }else Console.WriteLine("Não é possível encerrar conta.");
+    }
+    public void Depositar(double valor){
+        if (!this.Status)
+        {
+            Console.WriteLine("Abra uma conta para ter acesso a essa funcionalidade.");
+        }else if (valor<=0)
+        {
+            Console.WriteLine("Informe um valor válido");
+        }else this.Saldo+=valor;
+    }
+    public void Sacar(double valor)
+    {
+        if (!this.Status)
+        {
+            Console.WriteLine("Abra uma conta para ter acesso a essa funcionalidade.");
+        }
+        else if (this.Saldo<valor)
+        {
+            Console.WriteLine("Saldo insuficiente");
+        }else this.Saldo-=valor;
+    }
+    public void PagarMensal()
+    {
+        if (!this.Status)
+        {
+            Console.WriteLine("Abra uma conta para ter acesso a essa funcionalidade.");
+            
+        }
+        else if (this.Saldo<50)
+        {
+            Console.WriteLine("Saldo insuficiente");
+        }else
+        {
+        this.Saldo-=50;
+         Console.WriteLine("Taxa debitada com sucesso.");
         }
     }
 
-    public void AbrirConta(){}
-    public void FecharConta(){}
-    public void Depositar(){}
-    public void Sacar(){}
-    public void PagarMensal(){}
-    
-    string NumAleatorio()
+    static int NumAleatorio()
     {
         Random random=Random.Shared;
-        string num="";
-
-        for(int i = 0; i < 10; i++)
-        {
-            num += random.Next(0, 9).ToString();
-        }
-        return num;
+        return random.Next(10000000,100000000);
     }
+    
     public void StatusGeralConta()
     {
-        Console.WriteLine($"Conta aberta?{this.Status}. Dono da Conta: {this.Dono}.Saldo {this.Saldo}");
+        Console.WriteLine($"Conta aberta? {this.Status}.");
+         Console.WriteLine($"Dono da Conta: {this.Nome}.");
         Console.WriteLine($"Numero da conta: {this.Tipo}:{this.NumConta}");
+         Console.WriteLine($"Saldo R$:{this.Saldo},00");
+        Console.WriteLine("-----------------------------");
     }
 }
